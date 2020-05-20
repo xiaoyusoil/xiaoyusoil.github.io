@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>生鱼忧患</title>
+  
+  <subtitle>网络安全&amp;软件开发</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-05-20T10:25:01.005Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>真小鱼</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>&#39;SPM维护&#39;</title>
+    <link href="http://yoursite.com/2020/05/18/SPM%E7%BB%B4%E6%8A%A4/"/>
+    <id>http://yoursite.com/2020/05/18/SPM%E7%BB%B4%E6%8A%A4/</id>
+    <published>2020-05-18T11:36:45.000Z</published>
+    <updated>2020-05-20T10:25:01.005Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="软件项目管理"><a href="#软件项目管理" class="headerlink" title="软件项目管理"></a>软件项目管理</h2><h3 id="实验—LRR维护"><a href="#实验—LRR维护" class="headerlink" title="实验—LRR维护"></a>实验—LRR维护</h3><h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><p>1.安装wampserver集成服务器组件（Apache+PHP+Mysql/MariaDB）。</p><p>2.phpmyadmin新建lrr数据库并导入sql文件，两个sql文件任选其一。</p><p>3.安装HBuilderX或PhpStorm，进行必要的配置。</p><p>4.打开LRR即为成功。</p><img src="/2020/05/18/SPM%E7%BB%B4%E6%8A%A4/image-20200518221332226.png" class title="This is an image"><h4 id="维护流程"><a href="#维护流程" class="headerlink" title="维护流程"></a>维护流程</h4><p>1.明确bug，运行时错误，团队成员的名字在一组中多次出现。</p><img src="/2020/05/18/SPM%E7%BB%B4%E6%8A%A4/image-20200518221343243.png" class title="This is an image"><blockquote><p><a href="http://118.25.96.118/bugzilla/show_bug.cgi?id=57" target="_blank" rel="noopener">http://118.25.96.118/bugzilla/show_bug.cgi?id=57</a></p><p>Hui Lan 2020-03-15 13:55:57 CST</p><p><a href="http://118.25.96.118/bugzilla/show_bug.cgi?id=57" target="_blank" rel="noopener">Repeated names in a course group</a></p><p>QWQ- Leader : 陆博业(201732120119)<br>Zhou Xianlong-201732120130 (Joined)<br>陆博业-201732120119 (Created)<br>吕伊豪-201732120120 (Joined)<br>郑可富-201732120129 (Joined)<br>郑可富-201732120129 (Joined)<br>郑可富-201732120129 (Joined)<br>郑可富-201732120129 (Joined)<br>郑可富-201732120129 (Joined)</p></blockquote><p>2.修改Script.php文件中的connection为本地root连接。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;$con&#x3D;mysqli_connect(&quot;localhost&quot;,&quot;Teecloudy&quot;,&quot;5q7Ol2e!#!&quot;,&quot;lrr&quot;);</span><br><span class="line">$con&#x3D;mysqli_connect(&quot;localhost&quot;,&quot;root&quot;,&quot;&quot;,&quot;lrr&quot;);</span><br></pre></td></tr></table></figure><p>3.因为此bug是学生端创建组问题，因此以学生身份登录，UserType=Student。</p><p>4.问题复现。</p><ul><li>创建Group，遇到的问题。</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TypeError:$(...).dialog is not a function</span><br><span class="line">&#x2F;&#x2F;没有添加jquery-ui.css和jquery-ui.js</span><br><span class="line">TypeError: r.getClientRects is not a function</span><br><span class="line">&#x2F;&#x2F;添加的jquery-ui的版本为1.10.4导致此问题，更新为最新的1.12.1就显示正常了</span><br></pre></td></tr></table></figure><ul><li>重复邀请好友，还原到问题根本。</li></ul><img src="/2020/05/18/SPM%E7%BB%B4%E6%8A%A4/image-20200520005825475.png" class title="This is an image"><img src="/2020/05/18/SPM%E7%BB%B4%E6%8A%A4/image-20200520141050255.png" class title="This is an image"><ul><li>猜测是系统没有判断该好友是否已加入队伍，好像很好修复，加个判断就行，那就来试一下。</li></ul><p>5.代码审计。</p><ul><li>定位到邀请好友模块。该页面处于Course.php中。</li></ul><img src="/2020/05/18/SPM%E7%BB%B4%E6%8A%A4/image-20200520140322816.png" class title="This is an image"><img src="/2020/05/18/SPM%E7%BB%B4%E6%8A%A4/image-20200520140538458.png" class title="This is an image"><ul><li>表单传递到Script.php中处理。</li></ul><img src="/2020/05/18/SPM%E7%BB%B4%E6%8A%A4/image-20200520140803714.png" class title="This is an image"><p>该Invite Group Request模块并未在插入数据之前检查这条数据的合理性（是否重复包含）。</p><p>在获取student_id后直接插入数据表course_group_members_table。</p><p>6.解决方法。在插入之前先查询，比较之后再执行sql语句。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$result &#x3D; mysqli_query($con,&quot;SELECT * FROM course_group_members_table where Course_Group_id &#x3D; &#39;$groupid&#39; and Student_ID &#x3D; &#39;$student_id&#39;&quot;);</span><br><span class="line">if(mysqli_num_rows($result)&gt;0)&#123;</span><br><span class="line">header(&quot;Location: Course.php?url&#x3D;&quot;.$url);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">$sql&#x3D;&quot;INSERT INTO &#96;course_group_members_table&#96;( &#96;Course_Group_id&#96;, &#96;Student_ID&#96;, &#96;Status&#96;) VALUES ($groupid,$student_id,&#39;Invited&#39;)&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>该if-else语句首先查询数据库中是否存在要添加的student_id，若返回结果集中行的数量大于0，则表示已存在该student_id，那么重定向到当前页面；否则执行添加student_id的sql语句。</p><p>注意：把数据库表course_groups_table和course_group_members_table中重复的student_id数据先手动删除，否则mysqli_num_rows()返回值会大于0。</p><p>==============================分割线====================================================</p><p>太惨了，我在这边弄了4个小时的这个if语句，老是302，我说怎么不存在的student_id也会返回&gt;0的行数，原来是忘了我之前添加了两次同一个student_id，导致执行结果当然是&gt;0，后来终于后知后觉返回结果=2，我太傻了。</p><img src="/2020/05/18/SPM%E7%BB%B4%E6%8A%A4/image-20200520170834755.png" class title="This is an image"><p>==============================分割线====================================================</p><p>7.总结。</p><p>这个任务很简单，也有很多的解法，感谢老师给我分配了这么简单的任务🤞。</p><p>我重新学习了n久之前的sql（都忘得差不多了）。</p><p>用git bash push不上去，只能拿简单的github desktop来push了（又暴露智商了）。</p><p>遵循原子提交的原则，改了一点就往上push（老师说过这是一个优秀的代码狗的行为准则）。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;软件项目管理&quot;&gt;&lt;a href=&quot;#软件项目管理&quot; class=&quot;headerlink&quot; title=&quot;软件项目管理&quot;&gt;&lt;/a&gt;软件项目管理&lt;/h2&gt;&lt;h3 id=&quot;实验—LRR维护&quot;&gt;&lt;a href=&quot;#实验—LRR维护&quot; class=&quot;headerlink&quot; 
+      
+    
+    </summary>
+    
+    
+    
+      <category term="SPM" scheme="http://yoursite.com/tags/SPM/"/>
+    
+  </entry>
+  
+</feed>
