@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-20T13:26:12.683Z</updated>
+  <updated>2020-05-25T06:28:43.452Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,17 +17,50 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>安全架构</title>
+    <title>大型互联网企业安全架构</title>
     <link href="http://yoursite.com/2020/05/20/%E5%AE%89%E5%85%A8%E6%9E%B6%E6%9E%84/"/>
     <id>http://yoursite.com/2020/05/20/%E5%AE%89%E5%85%A8%E6%9E%B6%E6%9E%84/</id>
     <published>2020-05-20T13:26:12.000Z</published>
-    <updated>2020-05-20T13:26:12.683Z</updated>
+    <updated>2020-05-25T06:28:43.452Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="基础运维"><a href="#基础运维" class="headerlink" title="基础运维"></a>基础运维</h1><p>业务开发（Dev）完成后，就进入运维（Ops）阶段了，该阶段的资产管理、漏洞与补丁管理、安全配置基线、应急响应等如果没有做好也容易造成各种安全风险。</p><h1 id="基础安全运营平台"><a href="#基础安全运营平台" class="headerlink" title="基础安全运营平台"></a>基础安全运营平台</h1><p>基础安全运营平台是集<strong>威胁情报、漏洞检测、入侵感知、主动防御、后门查杀、安全基线、安全大脑</strong>于一体的综合安全平台，承担着企业抵御各种网络攻击和防范内部风险的重任。首先通过威胁情报从外部获取最新的攻击数据和趋势，其次通过漏洞检测统计企业资产并周期性巡检、修补安全漏洞，再基于入侵感知发现各种网络、主机、服务的攻击，随后使用主动防御、后门查杀及安全基线实现对入侵攻击免疫和安全加固，最后通过安全大脑统筹分析和自动化响应，一气呵成完成互联网企业的基础安全运营工作。</p><h2 id="威胁情报"><a href="#威胁情报" class="headerlink" title="威胁情报"></a>威胁情报</h2><p>随着网络安全环境越来越复杂，威胁情报（TIP）也扮演着越来越重要的角色。除了传统的URL、IP地址、域名（Domain）、文件（File），漏洞的POC（Proof Of Concept）、攻击手法、社交媒体信息、通过GPS（全球定位系统）获取的信息、数据泄露情况等也属于广义的安全威胁情报。</p><h2 id="漏洞检测"><a href="#漏洞检测" class="headerlink" title="漏洞检测"></a>漏洞检测</h2><p>在运营阶段，常常会爆发很多新型漏洞或第三方组件漏洞，这些漏洞在开发阶段通常可能没有被发现或公开，或者在做运维配置时使用了弱口令等，这为导致安全问题埋下了隐患，所以周期性的漏洞巡检必不可少。</p><p>按照漏洞检测方式的不同，漏洞大致可以被分为以下3种类型。·</p><p>网络漏洞：可以通过对端口直接进行远程扫描而发现的漏洞，如OpenSSH远程溢出漏洞、MySQL弱口令等。·</p><p>主机漏洞：只能在本地利用和检测的漏洞，如Linux内核提权、glibc漏洞提权等。·</p><p>网站漏洞：需要通过爬虫和遍历网站页面提取URL和参数才能检测的漏洞，如SQL注入、XSS跨站、命令执行、SSRF等。</p><h2 id="入侵感知"><a href="#入侵感知" class="headerlink" title="入侵感知"></a>入侵感知</h2><p>入侵感知技术是一种通过监控一系列与安全相关的异常指标来达到发现入侵目的的手段。一般可以从被动渠道感知入侵：①网络异常，如DDoS攻击、异常DNS请求、ARP欺骗；②主机异常，如暴力破解、反弹shell、系统提权；③隔离异常，如VM逃逸、容器逃逸；④应用异常，如命令执行、文件读写、SQL注入。也可从主动渠道（如蜜罐、诱饵、蜜签）来感知入侵。</p><h2 id="主动防御"><a href="#主动防御" class="headerlink" title="主动防御"></a>主动防御</h2><p>主动防御技术通常以保护为主。在系统默认安全的基础上加入主动防御技术通常有助于拦截已知或未知的安全威胁，比如，对于主机层Linux内核提权漏洞，在内核层再加上一层内核保护技术即可拦截提权进程；在应用层的Struts2、Spring框架基础上加入RASP技术即可拦截绝大部分零日漏洞。通过主动防御来层层设防，如使用HIPS、WAF、RASP、数据库防火墙等，即可实现纵深防御架构，从而保障业务的安全性。</p><h2 id="后门查杀（AV）"><a href="#后门查杀（AV）" class="headerlink" title="后门查杀（AV）"></a>后门查杀（AV）</h2><p>黑客入侵服务器后为了长期控制或便于操作系统通常会在主机中留下后门。一般后门大致分为3类：①高度隐蔽性后门Rootkit，②一般性远程控制后门，③在Web环境下执行的Webshell后门。</p><h2 id="安全基线"><a href="#安全基线" class="headerlink" title="安全基线"></a>安全基线</h2><p>安全基线</p><p>配置安全问题在安全漏洞中占很大比例，涉及的范围包括网络、操作系统、各种应用服务器以及数据库系统等。常见的安全基线包含默认安全配置和安全加固两部分。</p><p>【安全配置基线基本包括了所有的操作系统、数据库、中间件、网络设备、浏览器、云服务的安全配置，一般互联网公司可基于上述安全基线模板来开发自己的安全基线检查系统。】</p><h2 id="安全大脑"><a href="#安全大脑" class="headerlink" title="安全大脑"></a>安全大脑</h2><p>安全大脑</p><p>安全大脑即安全数据的综合分析与编排自动化响应中心，主要功能包含安全态势感知（SecuritySituation Awareness，SSA）、安全信息和事件管理（Security Information and EventManagement，SIEM）、安全编排与自动化响应（Security Orchestration,Automation andResponse，SOAR）。</p>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;基础运维&quot;&gt;&lt;a href=&quot;#基础运维&quot; class=&quot;headerlink&quot; title=&quot;基础运维&quot;&gt;&lt;/a&gt;基础运维&lt;/h1&gt;&lt;p&gt;业务开发（Dev）完成后，就进入运维（Ops）阶段了，该阶段的资产管理、漏洞与补丁管理、安全配置基线、应急响应等如果没有做好
+      
     
     </summary>
     
     
+    
+      <category term="安全运营" scheme="http://yoursite.com/tags/%E5%AE%89%E5%85%A8%E8%BF%90%E8%90%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Web安全基础总结</title>
+    <link href="http://yoursite.com/2020/05/20/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2020/05/20/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/</id>
+    <published>2020-05-20T13:20:43.000Z</published>
+    <updated>2020-05-25T06:28:22.553Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="白帽子讲Web安全—小记"><a href="#白帽子讲Web安全—小记" class="headerlink" title="白帽子讲Web安全—小记"></a>白帽子讲Web安全—小记</h1><h2 id="OWASP-TOP-10"><a href="#OWASP-TOP-10" class="headerlink" title="OWASP TOP 10"></a>OWASP TOP 10</h2><ol><li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A1-Injection" target="_blank" rel="noopener"><strong>Injection</strong></a>。当将不受信任的数据作为命令或查询的一部分发送到解释器时，会发生注入缺陷，例如SQL，NoSQL，OS和LDAP注入。攻击者的敌对数据可能会诱使解释器执行未经预期的命令或未经适当授权而访问数据。</li><li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A2-Broken_Authentication" target="_blank" rel="noopener"><strong>身份验证失败</strong></a>。与身份验证和会话管理有关的应用程序功能通常会错误地实现，从而使攻击者能够破坏密码，密钥或会话令牌，或者利用其他实现缺陷来临时或永久地假定其他用户的身份。</li><li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A3-Sensitive_Data_Exposure" target="_blank" rel="noopener"><strong>敏感数据暴露</strong></a>。许多Web应用程序和API无法正确保护敏感数据，例如金融，医疗保健和PII。攻击者可能会窃取或修改这些受保护程度不高的数据，以进行信用卡欺诈，身份盗用或其他犯罪。敏感数据可能会在没有额外保护的情况下受到损害，例如静态加密或传输中加密，并且在与浏览器进行交换时需要采取特殊的预防措施。</li><li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A4-XML_External_Entities_(XXE)" target="_blank" rel="noopener"><strong>XML外部实体（XXE）</strong></a>。许多较旧的或配置不当的XML处理器都会评估XML文档中的外部实体引用。外部实体可以使用文件URI处理程序，内部文件共享，内部端口扫描，远程代码执行和拒绝服务攻击来公开内部文件。</li><li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A5-Broken_Access_Control" target="_blank" rel="noopener"><strong>损坏的访问控制</strong></a>。通常，对身份验证用户允许执行的操作的限制通常未得到正确执行。攻击者可以利用这些缺陷来访问未经授权的功能和/或数据，例如访问其他用户的帐户，查看敏感文件，修改其他用户的数据，更改访问权限等。</li><li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration" target="_blank" rel="noopener"><strong>安全配置错误</strong></a>。安全配置错误是最常见的问题。这通常是由于不安全的默认配置，不完整或临时的配置，开放的云存储，错误配置的HTTP标头以及包含敏感信息的冗长错误消息的结果。不仅必须安全地配置所有操作系统，框架，库和应用程序，而且还必须及时对其进行修补/升级。</li><li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank" rel="noopener"><strong>跨站点脚本XSS</strong></a>。每当应用程序在未经适当验证或转义的情况下在新网页中包含不受信任的数据，或者使用可以创建HTML或JavaScript的浏览器API用用户提供的数据更新现有网页时，都会发生XSS漏洞。XSS允许攻击者在受害者的浏览器中执行脚本，这些脚本可以劫持用户会话，破坏网站或将用户重定向到恶意网站。</li><li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A8-Insecure_Deserialization" target="_blank" rel="noopener"><strong>不安全的反序列化</strong></a>。不安全的反序列化通常会导致远程执行代码。即使反序列化缺陷不会导致远程执行代码，也可以将它们用于执行攻击，包括重播攻击，注入攻击和特权升级攻击。</li><li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities" target="_blank" rel="noopener"><strong>使用已知漏洞的组件</strong></a>。诸如库，框架和其他软件模块之类的组件以与应用程序相同的特权运行。如果利用了易受攻击的组件，则此类攻击可能会导致严重的数据丢失或服务器接管。使用具有已知漏洞的组件的应用程序和API可能破坏应用程序防御，并造成各种攻击和影响。</li><li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A10-Insufficient_Logging%2526Monitoring" target="_blank" rel="noopener"><strong>日志和监控不足</strong></a>。日志和监视的不足，再加上事件响应的缺失或无效集成，使攻击者可以进一步攻击系统，保持持久性，转向更多系统以及篡改，提取或破坏数据。大多数违规研究表明，检测到违规的时间超过200天，通常由外部各方而不是内部流程或监视来检测。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;白帽子讲Web安全—小记&quot;&gt;&lt;a href=&quot;#白帽子讲Web安全—小记&quot; class=&quot;headerlink&quot; title=&quot;白帽子讲Web安全—小记&quot;&gt;&lt;/a&gt;白帽子讲Web安全—小记&lt;/h1&gt;&lt;h2 id=&quot;OWASP-TOP-10&quot;&gt;&lt;a href=&quot;#O
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Web安全" scheme="http://yoursite.com/tags/Web%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
