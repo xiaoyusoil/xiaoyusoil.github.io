@@ -17,21 +17,21 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Web安全基础总结 | Hexo</title>
-  <meta name="description" content="白帽子讲Web安全—小记OWASP TOP 10 Injection。当将不受信任的数据作为命令或查询的一部分发送到解释器时，会发生注入缺陷，例如SQL，NoSQL，OS和LDAP注入。攻击者的敌对数据可能会诱使解释器执行未经预期的命令或未经适当授权而访问数据。 身份验证失败。与身份验证和会话管理有关的应用程序功能通常会错误地实现，从而使攻击者能够破坏密码，密钥或会话令牌，或者利用其他实现缺陷来临">
+  <title>安全文章 | Hexo</title>
+  <meta name="description" content="深究用户利用.htaccess的原理篡改配置导致的安全问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Web安全基础总结">
-<meta property="og:url" content="http://yoursite.com/2020/05/20/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="安全文章">
+<meta property="og:url" content="http://yoursite.com/2020/06/17/%E5%AE%89%E5%85%A8%E6%96%87%E7%AB%A0/index.html">
 <meta property="og:site_name" content="生鱼忧患">
-<meta property="og:description" content="白帽子讲Web安全—小记OWASP TOP 10 Injection。当将不受信任的数据作为命令或查询的一部分发送到解释器时，会发生注入缺陷，例如SQL，NoSQL，OS和LDAP注入。攻击者的敌对数据可能会诱使解释器执行未经预期的命令或未经适当授权而访问数据。 身份验证失败。与身份验证和会话管理有关的应用程序功能通常会错误地实现，从而使攻击者能够破坏密码，密钥或会话令牌，或者利用其他实现缺陷来临">
+<meta property="og:description" content="深究用户利用.htaccess的原理篡改配置导致的安全问题">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-20T13:20:43.000Z">
-<meta property="article:modified_time" content="2020-05-25T06:28:22.553Z">
+<meta property="article:published_time" content="2020-06-17T05:54:26.000Z">
+<meta property="article:modified_time" content="2020-06-17T05:55:47.388Z">
 <meta property="article:author" content="真小鱼">
-<meta property="article:tag" content="Web安全">
+<meta property="article:tag" content="安全">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2020/05/20/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/index.html">
+  <link rel="canonical" href="http://yoursite.com/2020/06/17/%E5%AE%89%E5%85%A8%E6%96%87%E7%AB%A0/index.html">
   
     <link rel="alternate" href="/atom.xml" title="生鱼忧患" type="application/atom+xml">
   
@@ -326,14 +326,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Web安全基础总结" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-安全文章" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Web安全基础总结
+      安全文章
     </h1>
   
 
@@ -341,46 +341,34 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/05/20/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/" class="article-date">
-	  <time datetime="2020-05-20T13:20:43.000Z" itemprop="datePublished">2020-05-20</time>
+	<a href="/2020/06/17/%E5%AE%89%E5%85%A8%E6%96%87%E7%AB%A0/" class="article-date">
+	  <time datetime="2020-06-17T05:54:26.000Z" itemprop="datePublished">2020-06-17</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Web%E5%AE%89%E5%85%A8/" rel="tag">Web安全</a>
+	<a class="article-tag-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/20/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/06/17/%E5%AE%89%E5%85%A8%E6%96%87%E7%AB%A0/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 21(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="白帽子讲Web安全—小记"><a href="#白帽子讲Web安全—小记" class="headerlink" title="白帽子讲Web安全—小记"></a>白帽子讲Web安全—小记</h1><h2 id="OWASP-TOP-10"><a href="#OWASP-TOP-10" class="headerlink" title="OWASP TOP 10"></a>OWASP TOP 10</h2><ol>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A1-Injection" target="_blank" rel="noopener"><strong>Injection</strong></a>。当将不受信任的数据作为命令或查询的一部分发送到解释器时，会发生注入缺陷，例如SQL，NoSQL，OS和LDAP注入。攻击者的敌对数据可能会诱使解释器执行未经预期的命令或未经适当授权而访问数据。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A2-Broken_Authentication" target="_blank" rel="noopener"><strong>身份验证失败</strong></a>。与身份验证和会话管理有关的应用程序功能通常会错误地实现，从而使攻击者能够破坏密码，密钥或会话令牌，或者利用其他实现缺陷来临时或永久地假定其他用户的身份。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A3-Sensitive_Data_Exposure" target="_blank" rel="noopener"><strong>敏感数据暴露</strong></a>。许多Web应用程序和API无法正确保护敏感数据，例如金融，医疗保健和PII。攻击者可能会窃取或修改这些受保护程度不高的数据，以进行信用卡欺诈，身份盗用或其他犯罪。敏感数据可能会在没有额外保护的情况下受到损害，例如静态加密或传输中加密，并且在与浏览器进行交换时需要采取特殊的预防措施。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A4-XML_External_Entities_(XXE)" target="_blank" rel="noopener"><strong>XML外部实体（XXE）</strong></a>。许多较旧的或配置不当的XML处理器都会评估XML文档中的外部实体引用。外部实体可以使用文件URI处理程序，内部文件共享，内部端口扫描，远程代码执行和拒绝服务攻击来公开内部文件。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A5-Broken_Access_Control" target="_blank" rel="noopener"><strong>损坏的访问控制</strong></a>。通常，对身份验证用户允许执行的操作的限制通常未得到正确执行。攻击者可以利用这些缺陷来访问未经授权的功能和/或数据，例如访问其他用户的帐户，查看敏感文件，修改其他用户的数据，更改访问权限等。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration" target="_blank" rel="noopener"><strong>安全配置错误</strong></a>。安全配置错误是最常见的问题。这通常是由于不安全的默认配置，不完整或临时的配置，开放的云存储，错误配置的HTTP标头以及包含敏感信息的冗长错误消息的结果。不仅必须安全地配置所有操作系统，框架，库和应用程序，而且还必须及时对其进行修补/升级。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank" rel="noopener"><strong>跨站点脚本XSS</strong></a>。每当应用程序在未经适当验证或转义的情况下在新网页中包含不受信任的数据，或者使用可以创建HTML或JavaScript的浏览器API用用户提供的数据更新现有网页时，都会发生XSS漏洞。XSS允许攻击者在受害者的浏览器中执行脚本，这些脚本可以劫持用户会话，破坏网站或将用户重定向到恶意网站。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A8-Insecure_Deserialization" target="_blank" rel="noopener"><strong>不安全的反序列化</strong></a>。不安全的反序列化通常会导致远程执行代码。即使反序列化缺陷不会导致远程执行代码，也可以将它们用于执行攻击，包括重播攻击，注入攻击和特权升级攻击。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities" target="_blank" rel="noopener"><strong>使用已知漏洞的组件</strong></a>。诸如库，框架和其他软件模块之类的组件以与应用程序相同的特权运行。如果利用了易受攻击的组件，则此类攻击可能会导致严重的数据丢失或服务器接管。使用具有已知漏洞的组件的应用程序和API可能破坏应用程序防御，并造成各种攻击和影响。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A10-Insufficient_Logging%2526Monitoring" target="_blank" rel="noopener"><strong>日志和监控不足</strong></a>。日志和监视的不足，再加上事件响应的缺失或无效集成，使攻击者可以进一步攻击系统，保持持久性，转向更多系统以及篡改，提取或破坏数据。大多数违规研究表明，检测到违规的时间超过200天，通常由外部各方而不是内部流程或监视来检测。</li>
-</ol>
-
+        <h2 id="深究用户利用-htaccess的原理篡改配置导致的安全问题"><a href="#深究用户利用-htaccess的原理篡改配置导致的安全问题" class="headerlink" title="深究用户利用.htaccess的原理篡改配置导致的安全问题"></a>深究用户利用.htaccess的原理篡改配置导致的安全问题</h2>
       
     </div>
     <div class="article-footer">
@@ -389,7 +377,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2020/05/20/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/" title="Web安全基础总结" target="_blank" rel="external">http://yoursite.com/2020/05/20/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/</a>
+      <a href="http://yoursite.com/2020/06/17/%E5%AE%89%E5%85%A8%E6%96%87%E7%AB%A0/" title="安全文章" target="_blank" rel="external">http://yoursite.com/2020/06/17/%E5%AE%89%E5%85%A8%E6%96%87%E7%AB%A0/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -437,13 +425,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2020/05/20/%E5%AE%89%E5%85%A8%E6%9E%B6%E6%9E%84/" title="大型互联网企业安全架构"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2020/05/18/SPM%E7%BB%B4%E6%8A%A4/" title="SPM维护"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/05/20/%E5%AE%89%E5%85%A8%E6%9E%B6%E6%9E%84/" title="大型互联网企业安全架构"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
