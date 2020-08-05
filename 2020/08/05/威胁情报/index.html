@@ -25,11 +25,18 @@
 <meta property="og:site_name" content="生鱼忧患">
 <meta property="og:description" content="整理自K0rz3n的博客，在此做记录【状态：通读一遍】 https:&#x2F;&#x2F;www.k0rz3n.com&#x2F;2019&#x2F;03&#x2F;19&#x2F;%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5%E6%A6%82%E5%BF%B5%E4%B8%8EAPT%E4%BA%8B%E4%BB%B6%E5%88%86%E6%9E%90%E6%A8%A1%E5%9E%8B%E6%A6%82%E8%BF%B0">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/08/05/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/05/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/05/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5/3.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/05/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5/4.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/05/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5/5.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/05/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5/6.png">
 <meta property="article:published_time" content="2020-08-05T14:06:54.000Z">
-<meta property="article:modified_time" content="2020-08-05T14:18:38.187Z">
+<meta property="article:modified_time" content="2020-08-05T14:31:32.748Z">
 <meta property="article:author" content="真小鱼">
 <meta property="article:tag" content="威胁情报">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/05/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5/1.png">
   <!-- Canonical links -->
   <link rel="canonical" href="http://yoursite.com/2020/08/05/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5/index.html">
   
@@ -372,7 +379,7 @@
 <p><a href="https://www.k0rz3n.com/2019/03/19/威胁情报概念与APT事件分析模型概述/" target="_blank" rel="noopener">https://www.k0rz3n.com/2019/03/19/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5%E6%A6%82%E5%BF%B5%E4%B8%8EAPT%E4%BA%8B%E4%BB%B6%E5%88%86%E6%9E%90%E6%A8%A1%E5%9E%8B%E6%A6%82%E8%BF%B0/</a></p>
 <h1 id="威胁情报"><a href="#威胁情报" class="headerlink" title="威胁情报"></a>威胁情报</h1><p>1、威胁情报是关于IT或信息资产所面临的现有或潜在的威胁的循证知识，包括情境、机制、指标、推论与可行建议，这些知识可为威胁响应提供决策依据。</p>
 <p>2、威胁情报的按不同标准有很多不同的分类方式，根据数据本身威胁情报可分为HASH值，IP地址，域名，网络或主机特征，TTPs这几种。</p>
-
+<img src="/2020/08/05/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5/1.png" class title="This is an image">
 
 <p>【左侧为可利用情报，右侧为这些情报给攻击者造成的困难程度】</p>
 <p>2.1、一般来说情报中价值最低的是Hash值、IP地址和域名（也就是常说的信誉库），其次是网络/主机特征、攻击工具特征，对攻击者影响最大的是TTPs（战术、技术和行为模式）类型的威胁情报。这里分别做个简单介绍：</p>
@@ -402,7 +409,7 @@
 <p>一次完整的攻击行为的参考就是上面说到的Kill-Chain，也就是用来<u>描述的攻击者攻击的路线和进行的进度</u>。但是Kill-Chain只能说明攻击的进程和路线，并不能很好地说明其造成的影响和目的，钻石模型就很好的针对性的补充了这点。</p>
 <p>3、钻石模型【造成的影响和目的】</p>
 <p>3.1、钻石模型是一个针对单个事件分析的模型，核心就是用来<u>描述攻击者的技战术和目的</u>，具体的钻石模型如下图所示：</p>
-
+<img src="/2020/08/05/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5/2.png" class title="This is an image">
 
 <p>【攻击者因为什么原因，利用哪些基础设施，并通过哪些手段，攻击了怎样的一个目标】</p>
 <p>具体一点的关于图中信息的解释如下：</p>
@@ -411,18 +418,18 @@
 <p><strong>元数据</strong>：这个其实就是左边列出来的，<u>攻击时间、攻击阶段、攻击结果、攻击方向、攻击手段、攻击资源利用</u></p>
 <p><strong>置信度</strong>：也就是以上你分析出<u>结果的可信程度</u>。</p>
 <p>3.2、钻石模型建立的基本元素是入侵活动事件，事件有四个基本特征：对手、能力、基础设施和受害者。</p>
-
+<img src="/2020/08/05/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5/3.png" class title="This is an image">
 
 <p><strong>对手</strong>：对手的知识一般情况下难以掌握，特别是在刚发现的时候，这时候会简单的将对手的活动当作对手。</p>
 <p><strong>能力</strong>：描述事件中使用的<u>工具或者技术</u>。可以包括最原始的手工方法，也可以是高度复杂的自动化攻击，所有已披露的漏洞应该属于其一部分。</p>
 <p><strong>基础设施</strong>：描述攻击者用来递送能力的物理或逻辑结构，如：IP地址、域名、邮件地址、或者某个USB设备等。基础设施有两种类型，一类是<u>攻击者完全控制及拥有</u>的，另一类是<u>短时间控制</u>的，如僵尸主机、恶意网址、攻击跳跃点、失陷的账号等等，它们很可能会混淆恶意活动的起源和归属。</p>
 <p><strong>受害者</strong>：受害者的身份和资产在不同的分析中都非常有用，受害者或社会-政治为支点的安全分析中受害者身份作用重大，而脆弱性评估必然和资产相关。资产同时可能是攻击面或最终目标。</p>
 <p>3.3、支点分析pivote</p>
-
+<img src="/2020/08/05/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5/4.png" class title="This is an image">
 
 <p>4、杀伤链与钻石模型的组合分析</p>
 <p>复杂的攻击往往都是由一系列的攻击事件组成的，不同的攻击事件指向的目标和达到的目的可以表示出攻击的进程，那么我们如果把事件按照Kill-Chain进行分类同时使用泳道图进行表示，同时把不同的攻击路线分为不同的攻击线程，那么我们就可以得到一个这样的泳道图。</p>
-
+<img src="/2020/08/05/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5/5.png" class title="This is an image">
 
 <p>其实这张图描述的是这么一个事件：</p>
 <p>1.攻击者先对目标进行了Google Hacking操作，获得了他们域名解析记录等一些基础的It信息</p>
@@ -441,7 +448,7 @@
 <p>14.目标三号的所有数据被攻击者三号窃取</p>
 <p>这样的话使用Kill-Chain和钻石模型分析可以同时get到攻击者的点和想要攻击的目标，同时还知道了他的攻击路径，也就是说这时候我们对攻击者了如指掌了。</p>
 <p>5、基于Kill-Chain的安全防护矩阵</p>
-
+<img src="/2020/08/05/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5/6.png" class title="This is an image">
 
 <h1 id="ATT-amp-CK框架"><a href="#ATT-amp-CK框架" class="headerlink" title="ATT&amp;CK框架"></a>ATT&amp;CK框架</h1><p>补充ing</p>
 
