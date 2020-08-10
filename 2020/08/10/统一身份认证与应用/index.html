@@ -17,21 +17,25 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Web安全基础总结 | Hexo</title>
-  <meta name="description" content="白帽子讲Web安全—小记OWASP TOP 10 Injection。当将不受信任的数据作为命令或查询的一部分发送到解释器时，会发生注入缺陷，例如SQL，NoSQL，OS和LDAP注入。攻击者的敌对数据可能会诱使解释器执行未经预期的命令或未经适当授权而访问数据。 身份验证失败。与身份验证和会话管理有关的应用程序功能通常会错误地实现，从而使攻击者能够破坏密码，密钥或会话令牌，或者利用其他实现缺陷来临">
+  <title>&#39;统一身份认证与应用&#39; | Hexo</title>
+  <meta name="description" content="1、统一身份认证(IAM, Identity and Access Management)与单点登录(SSO, single sign on)是同一个概念。如果没有统一身份认证，那么你进入任何一个应用系统都要求输入账号和密码，这样一方面难以记住众多的账号和密码，另一方面使用云端资源很烦琐。 2、对于云端应用系统的访问控制，通常分为三个层面： 认证：解决能否进入的问题。 授权：解决进入后能做什么的问">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Web安全基础总结">
-<meta property="og:url" content="http://yoursite.com/2020/05/20/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="&#39;统一身份认证与应用&#39;">
+<meta property="og:url" content="http://yoursite.com/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/index.html">
 <meta property="og:site_name" content="生鱼忧患">
-<meta property="og:description" content="白帽子讲Web安全—小记OWASP TOP 10 Injection。当将不受信任的数据作为命令或查询的一部分发送到解释器时，会发生注入缺陷，例如SQL，NoSQL，OS和LDAP注入。攻击者的敌对数据可能会诱使解释器执行未经预期的命令或未经适当授权而访问数据。 身份验证失败。与身份验证和会话管理有关的应用程序功能通常会错误地实现，从而使攻击者能够破坏密码，密钥或会话令牌，或者利用其他实现缺陷来临">
+<meta property="og:description" content="1、统一身份认证(IAM, Identity and Access Management)与单点登录(SSO, single sign on)是同一个概念。如果没有统一身份认证，那么你进入任何一个应用系统都要求输入账号和密码，这样一方面难以记住众多的账号和密码，另一方面使用云端资源很烦琐。 2、对于云端应用系统的访问控制，通常分为三个层面： 认证：解决能否进入的问题。 授权：解决进入后能做什么的问">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-20T13:20:43.000Z">
-<meta property="article:modified_time" content="2020-05-25T06:28:22.553Z">
+<meta property="og:image" content="http://yoursite.com/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/3.png">
+<meta property="article:published_time" content="2020-08-10T14:12:22.000Z">
+<meta property="article:modified_time" content="2020-08-10T14:17:43.649Z">
 <meta property="article:author" content="真小鱼">
-<meta property="article:tag" content="Web安全">
+<meta property="article:tag" content="统一身份认证">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/1.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://yoursite.com/2020/05/20/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/index.html">
+  <link rel="canonical" href="http://yoursite.com/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/index.html">
   
     <link rel="alternate" href="/atom.xml" title="生鱼忧患" type="application/atom+xml">
   
@@ -341,14 +345,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Web安全基础总结" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-统一身份认证与应用" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Web安全基础总结
+      &#39;统一身份认证与应用&#39;
     </h1>
   
 
@@ -356,24 +360,24 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/05/20/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/" class="article-date">
-	  <time datetime="2020-05-20T13:20:43.000Z" itemprop="datePublished">2020-05-20</time>
+	<a href="/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/" class="article-date">
+	  <time datetime="2020-08-10T14:12:22.000Z" itemprop="datePublished">2020-08-10</time>
 	</a>
 </span>
         
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link" href="/tags/Web%E5%AE%89%E5%85%A8/" rel="tag">Web安全</a>
+	<a class="article-tag-link" href="/tags/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81/" rel="tag">统一身份认证</a>
   </span>
 
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/20/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1k(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 869(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
@@ -383,18 +387,67 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="白帽子讲Web安全—小记"><a href="#白帽子讲Web安全—小记" class="headerlink" title="白帽子讲Web安全—小记"></a>白帽子讲Web安全—小记</h1><h2 id="OWASP-TOP-10"><a href="#OWASP-TOP-10" class="headerlink" title="OWASP TOP 10"></a>OWASP TOP 10</h2><ol>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A1-Injection" target="_blank" rel="noopener"><strong>Injection</strong></a>。当将不受信任的数据作为命令或查询的一部分发送到解释器时，会发生注入缺陷，例如SQL，NoSQL，OS和LDAP注入。攻击者的敌对数据可能会诱使解释器执行未经预期的命令或未经适当授权而访问数据。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A2-Broken_Authentication" target="_blank" rel="noopener"><strong>身份验证失败</strong></a>。与身份验证和会话管理有关的应用程序功能通常会错误地实现，从而使攻击者能够破坏密码，密钥或会话令牌，或者利用其他实现缺陷来临时或永久地假定其他用户的身份。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A3-Sensitive_Data_Exposure" target="_blank" rel="noopener"><strong>敏感数据暴露</strong></a>。许多Web应用程序和API无法正确保护敏感数据，例如金融，医疗保健和PII。攻击者可能会窃取或修改这些受保护程度不高的数据，以进行信用卡欺诈，身份盗用或其他犯罪。敏感数据可能会在没有额外保护的情况下受到损害，例如静态加密或传输中加密，并且在与浏览器进行交换时需要采取特殊的预防措施。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A4-XML_External_Entities_(XXE)" target="_blank" rel="noopener"><strong>XML外部实体（XXE）</strong></a>。许多较旧的或配置不当的XML处理器都会评估XML文档中的外部实体引用。外部实体可以使用文件URI处理程序，内部文件共享，内部端口扫描，远程代码执行和拒绝服务攻击来公开内部文件。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A5-Broken_Access_Control" target="_blank" rel="noopener"><strong>损坏的访问控制</strong></a>。通常，对身份验证用户允许执行的操作的限制通常未得到正确执行。攻击者可以利用这些缺陷来访问未经授权的功能和/或数据，例如访问其他用户的帐户，查看敏感文件，修改其他用户的数据，更改访问权限等。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A6-Security_Misconfiguration" target="_blank" rel="noopener"><strong>安全配置错误</strong></a>。安全配置错误是最常见的问题。这通常是由于不安全的默认配置，不完整或临时的配置，开放的云存储，错误配置的HTTP标头以及包含敏感信息的冗长错误消息的结果。不仅必须安全地配置所有操作系统，框架，库和应用程序，而且还必须及时对其进行修补/升级。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A7-Cross-Site_Scripting_(XSS)" target="_blank" rel="noopener"><strong>跨站点脚本XSS</strong></a>。每当应用程序在未经适当验证或转义的情况下在新网页中包含不受信任的数据，或者使用可以创建HTML或JavaScript的浏览器API用用户提供的数据更新现有网页时，都会发生XSS漏洞。XSS允许攻击者在受害者的浏览器中执行脚本，这些脚本可以劫持用户会话，破坏网站或将用户重定向到恶意网站。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A8-Insecure_Deserialization" target="_blank" rel="noopener"><strong>不安全的反序列化</strong></a>。不安全的反序列化通常会导致远程执行代码。即使反序列化缺陷不会导致远程执行代码，也可以将它们用于执行攻击，包括重播攻击，注入攻击和特权升级攻击。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A9-Using_Components_with_Known_Vulnerabilities" target="_blank" rel="noopener"><strong>使用已知漏洞的组件</strong></a>。诸如库，框架和其他软件模块之类的组件以与应用程序相同的特权运行。如果利用了易受攻击的组件，则此类攻击可能会导致严重的数据丢失或服务器接管。使用具有已知漏洞的组件的应用程序和API可能破坏应用程序防御，并造成各种攻击和影响。</li>
-<li><a href="https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A10-Insufficient_Logging%2526Monitoring" target="_blank" rel="noopener"><strong>日志和监控不足</strong></a>。日志和监视的不足，再加上事件响应的缺失或无效集成，使攻击者可以进一步攻击系统，保持持久性，转向更多系统以及篡改，提取或破坏数据。大多数违规研究表明，检测到违规的时间超过200天，通常由外部各方而不是内部流程或监视来检测。</li>
-</ol>
+        <p>1、统一身份认证(IAM, Identity and Access Management)与单点登录(SSO, single sign on)是同一个概念。如果没有统一身份认证，那么你进入任何一个应用系统都要求输入账号和密码，这样一方面难以记住众多的账号和密码，另一方面使用云端资源很烦琐。</p>
+<p>2、对于云端应用系统的访问控制，通常分为三个层面：</p>
+<p>认证：解决能否进入的问题。</p>
+<p>授权：解决进入后能做什么的问题。</p>
+<p>记账：解决做了事情后就要承担相应责任的问题，可能还要付费。</p>
+<p>这就是通常所说的 3A 安全机制（Authentication，Authorization，Accountability）。</p>
+<p>3、基于 3A 安全机制的访问控制在现代操作系统中被普遍采用，例如 Linux 操作系统访问控制步骤如下：</p>
+<p>1）用户输入账号和密码企图登录系统，此时操作系统会进行认证（Authentication），即核对输入的账号和密码与保存在系统里的账号和密码是否相符。如果相符，则允许登录。</p>
+<p>2）登录后的用户并不能为所欲为，其每一步操作都必须被授权（Authorization），比如允许进入什么目录、哪些文件允许读、哪些文件允许写、哪些文件允许删除等，都处于操作系统严密的监视之下。</p>
+<p>3）用户的全部操作都被作为日志记录下来（Accountability），方便以后落实责任、事后监督，并作为付费的依据。</p>
+<p>4、Windows 操作系统也采用相同的方法，作为云端的统一身份认证系统，必须实现以下四个功能：</p>
+<p>1）统一用户管理（Identification）</p>
+<p>租户的账号、密码等信息集中存储，统一管理。</p>
+<p>2）身份鉴别（Authentication）</p>
+<p>当租户企图登录某个应用系统时，验证他的票据或者身份是否合法。</p>
+<p>3）权限控制（Authorization）</p>
+<p>规定允许登录系统的租户具备哪些操作权限。</p>
+<p>4）操作日志登记（Accountability）</p>
+<p>记录租户的操作行为，以便事后责任追溯。</p>
+<p>5、统一身份认证的功能描述</p>
+<p>5.1、用户管理</p>
+<img src="/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/1.png" class title="This is an image">
+
+<p>企业的安全治理：</p>
+<ul>
+<li>根据用户职责规划用户组</li>
+<li>并根据职责为用户组授权</li>
+<li>再将用户加入到用户组中</li>
+<li>使得用户具有所属用户组中的权限</li>
+</ul>
+<p>优势：</p>
+<ul>
+<li>用户灵活管理</li>
+<li>当用户职责发生变化时，只需要调整其所属用户组即可</li>
+<li>权限精细管理</li>
+<li>您可以基于项目授予用户某个资源的操作权限</li>
+</ul>
+<p>5.2、联邦身份认证</p>
+<img src="/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/2.png" class title="This is an image">
+
+<p>单点登录：</p>
+<p>企业内员工需要访问云时，无需注册云账号，通过配置联邦身份认证，在自身企业管理系统中认证后，即可直接访问云。</p>
+<p>优势：</p>
+<ul>
+<li>入口统一</li>
+<li>企业用户仅需要在自身的企业管理系统登录</li>
+<li>轻松管理</li>
+<li>企业只需管理一套企业管理系统的用户信息</li>
+</ul>
+<p>5.3、权限共享</p>
+<img src="/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/3.png" class title="This is an image">
+
+<p>协作：</p>
+<p>您需要与其他账号共享你的资源和权限，但无需提供密码或密钥。</p>
+<p>优势：</p>
+<ul>
+<li>使用便捷</li>
+<li>选择好需要共享的权限后创建委托给被委托账号</li>
+<li>可随时回收</li>
+<li>建立的委托关系可以随时根据您的需要取消</li>
+</ul>
 
       
     </div>
@@ -404,7 +457,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://yoursite.com/2020/05/20/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/" title="Web安全基础总结" target="_blank" rel="external">http://yoursite.com/2020/05/20/Web%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/</a>
+      <a href="http://yoursite.com/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/" title="&#39;统一身份认证与应用&#39;" target="_blank" rel="external">http://yoursite.com/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -452,13 +505,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2020/05/20/%E5%AE%89%E5%85%A8%E6%9E%B6%E6%9E%84/" title="大型互联网企业安全架构"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2020/05/18/SPM%E7%BB%B4%E6%8A%A4/" title="SPM维护"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/08/05/%E5%A8%81%E8%83%81%E6%83%85%E6%8A%A5/" title="威胁情报与分析模型"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

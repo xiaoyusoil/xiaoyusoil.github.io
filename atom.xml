@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-05T14:31:32.748Z</updated>
+  <updated>2020-08-10T14:17:43.649Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>&#39;统一身份认证与应用&#39;</title>
+    <link href="http://yoursite.com/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/"/>
+    <id>http://yoursite.com/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/</id>
+    <published>2020-08-10T14:12:22.000Z</published>
+    <updated>2020-08-10T14:17:43.649Z</updated>
+    
+    <content type="html"><![CDATA[<p>1、统一身份认证(IAM, Identity and Access Management)与单点登录(SSO, single sign on)是同一个概念。如果没有统一身份认证，那么你进入任何一个应用系统都要求输入账号和密码，这样一方面难以记住众多的账号和密码，另一方面使用云端资源很烦琐。</p><p>2、对于云端应用系统的访问控制，通常分为三个层面：</p><p>认证：解决能否进入的问题。</p><p>授权：解决进入后能做什么的问题。</p><p>记账：解决做了事情后就要承担相应责任的问题，可能还要付费。</p><p>这就是通常所说的 3A 安全机制（Authentication，Authorization，Accountability）。</p><p>3、基于 3A 安全机制的访问控制在现代操作系统中被普遍采用，例如 Linux 操作系统访问控制步骤如下：</p><p>1）用户输入账号和密码企图登录系统，此时操作系统会进行认证（Authentication），即核对输入的账号和密码与保存在系统里的账号和密码是否相符。如果相符，则允许登录。</p><p>2）登录后的用户并不能为所欲为，其每一步操作都必须被授权（Authorization），比如允许进入什么目录、哪些文件允许读、哪些文件允许写、哪些文件允许删除等，都处于操作系统严密的监视之下。</p><p>3）用户的全部操作都被作为日志记录下来（Accountability），方便以后落实责任、事后监督，并作为付费的依据。</p><p>4、Windows 操作系统也采用相同的方法，作为云端的统一身份认证系统，必须实现以下四个功能：</p><p>1）统一用户管理（Identification）</p><p>租户的账号、密码等信息集中存储，统一管理。</p><p>2）身份鉴别（Authentication）</p><p>当租户企图登录某个应用系统时，验证他的票据或者身份是否合法。</p><p>3）权限控制（Authorization）</p><p>规定允许登录系统的租户具备哪些操作权限。</p><p>4）操作日志登记（Accountability）</p><p>记录租户的操作行为，以便事后责任追溯。</p><p>5、统一身份认证的功能描述</p><p>5.1、用户管理</p><img src="/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/1.png" class title="This is an image"><p>企业的安全治理：</p><ul><li>根据用户职责规划用户组</li><li>并根据职责为用户组授权</li><li>再将用户加入到用户组中</li><li>使得用户具有所属用户组中的权限</li></ul><p>优势：</p><ul><li>用户灵活管理</li><li>当用户职责发生变化时，只需要调整其所属用户组即可</li><li>权限精细管理</li><li>您可以基于项目授予用户某个资源的操作权限</li></ul><p>5.2、联邦身份认证</p><img src="/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/2.png" class title="This is an image"><p>单点登录：</p><p>企业内员工需要访问云时，无需注册云账号，通过配置联邦身份认证，在自身企业管理系统中认证后，即可直接访问云。</p><p>优势：</p><ul><li>入口统一</li><li>企业用户仅需要在自身的企业管理系统登录</li><li>轻松管理</li><li>企业只需管理一套企业管理系统的用户信息</li></ul><p>5.3、权限共享</p><img src="/2020/08/10/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E4%B8%8E%E5%BA%94%E7%94%A8/3.png" class title="This is an image"><p>协作：</p><p>您需要与其他账号共享你的资源和权限，但无需提供密码或密钥。</p><p>优势：</p><ul><li>使用便捷</li><li>选择好需要共享的权限后创建委托给被委托账号</li><li>可随时回收</li><li>建立的委托关系可以随时根据您的需要取消</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1、统一身份认证(IAM, Identity and Access Management)与单点登录(SSO, single sign on)是同一个概念。如果没有统一身份认证，那么你进入任何一个应用系统都要求输入账号和密码，这样一方面难以记住众多的账号和密码，另一方面使用
+      
+    
+    </summary>
+    
+    
+    
+      <category term="统一身份认证" scheme="http://yoursite.com/tags/%E7%BB%9F%E4%B8%80%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81/"/>
+    
+  </entry>
   
   <entry>
     <title>威胁情报与分析模型</title>
