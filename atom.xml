@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-10T14:23:17.215Z</updated>
+  <updated>2020-08-26T13:23:52.155Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>tomcat-pass-getshell</title>
+    <link href="http://yoursite.com/2020/08/26/tomcat-pass-getshell/"/>
+    <id>http://yoursite.com/2020/08/26/tomcat-pass-getshell/</id>
+    <published>2020-08-26T13:13:38.000Z</published>
+    <updated>2020-08-26T13:23:52.155Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><p>Tomcat是Jakarta项目开发的<strong>Servlet</strong>容器，实现了<strong>对Servlet和JavaServer Page（JSP）的支持</strong>，并提供了作为Web服务器的一些特有功能，如Tomcat管理和控制平台、安全局管理和Tomcat阀等。</p><p>由于Tomcat本身也内含了HTTP服务器，因此也可以视作<strong>单独的Web服务器</strong>。但是，不能将Tomcat和Apache HTTP服务器混淆，Apache HTTP服务器是用C语言实现的HTTP Web服务器；这两个HTTP web server不是捆绑在一起的。Apache Tomcat包含了配置管理工具，也可以通过编辑XML格式的配置文件来进行配置。</p><p>Apache Tomcat的默认端口是8080，管理后台是tomcat manager，后台的路径是 /manager/html。</p><p>tomcat manager后台的弱口令账户密码是tomcat/tomcat。</p><h1 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h1><p>1、访问页面</p><table><thead><tr><th>PORT</th><th>STATE</th><th>SERVICE</th><th>VERSION</th></tr></thead><tbody><tr><td>54766/tcp</td><td>open</td><td>http</td><td>Apache  Tomcat/Coyote JSP engine 1.1</td></tr></tbody></table><img src="/2020/08/26/tomcat-pass-getshell/1.png" class title="This is an image"><p>2、直接尝试弱口令登入 Manager App 后台</p><img src="/2020/08/26/tomcat-pass-getshell/2.png" class title="This is an image"><p>3、往下翻，发现可以上传war包，war file to deploy</p><img src="/2020/08/26/tomcat-pass-getshell/3.png" class title="This is an image"><p>4、制作war包，将jsp马压缩为zip，改后缀为war，上传</p><img src="/2020/08/26/tomcat-pass-getshell/4.png" class title="This is an image"><p>5、然后构造木马访问路径 http://靶机地址/压缩包名/shell名.jsp(想要执行你的 war 文件，你需要进入该目录并点击 war 文件，或者是直接在 URL 里访问)</p><p>6、用冰蝎连接，成功后找flag，在tmp下</p><img src="/2020/08/26/tomcat-pass-getshell/5.png" class title="This is an image"><h1 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h1><p>1、Tomcat支持在后台部署war文件，可以直接将webshell部署到web目录下。其中，欲访问后台，需要对应用户有相应权限。</p><p>2、Tomcat7+权限分为：</p><ul><li>manager（后台管理）<ul><li>manager-gui 拥有html页面权限</li><li>manager-status 拥有查看status的权限</li><li>manager-script 拥有text接口的权限，和status权限</li><li>manager-jmx 拥有jmx权限，和status权限</li></ul></li><li>host-manager（虚拟主机管理）<ul><li>admin-gui 拥有html页面权限</li><li>admin-script 拥有text接口权限</li></ul></li></ul><p>3、正常安装的情况下，tomcat8中默认没有任何用户，且manager页面只允许本地IP访问。只有管理员手工修改了这些属性的情况下，才可以进行攻击。</p><p>4、为什么需要上传war包，为什么不是tar.zip一类的。</p><p>war包是用来进行Web开发时一个网站项目下的所有代码，包括前台HTML/CSS/JS代码，以及后台JavaWeb的代码。当开发人员开发完毕时，就会将源码打包给测试人员测试，测试完后若要发布则也会打包成War包进行发布。War包可以放在Tomcat下的webapps或word目录，当Tomcat服务器启动时，War包即会随之解压源代码来进行自动部署。</p><h1 id="修复建议"><a href="#修复建议" class="headerlink" title="修复建议"></a>修复建议</h1><p>1、在系统上以低权限运行Tomcat应用程序。创建一个专门的 Tomcat服务用户，该用户只能拥有一组最小权限（例如不允许远程登录）。</p><p>2、增加对于本地和基于证书的身份验证，部署账户锁定机制（对于集中式认证，目录服务也要做相应配置）。在CATALINA_HOME/conf/web.xml文件设置锁定机制和时间超时限制。</p><p>3、以及针对manager-gui/manager-status/manager-script等目录页面设置最小权限访问限制。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;前置知识&quot;&gt;&lt;a href=&quot;#前置知识&quot; class=&quot;headerlink&quot; title=&quot;前置知识&quot;&gt;&lt;/a&gt;前置知识&lt;/h1&gt;&lt;p&gt;Tomcat是Jakarta项目开发的&lt;strong&gt;Servlet&lt;/strong&gt;容器，实现了&lt;strong&gt;对Serv
+      
+    
+    </summary>
+    
+    
+    
+      <category term="vulfocus练习" scheme="http://yoursite.com/tags/vulfocus%E7%BB%83%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>统一身份认证与应用</title>
