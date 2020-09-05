@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-09-03T11:25:36.408Z</updated>
+  <updated>2020-09-05T16:37:41.863Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Web-Developer</title>
+    <link href="http://yoursite.com/2020/09/05/Web-Developer/"/>
+    <id>http://yoursite.com/2020/09/05/Web-Developer/</id>
+    <published>2020-09-05T05:02:08.000Z</published>
+    <updated>2020-09-05T16:37:41.863Z</updated>
+    
+    <content type="html"><![CDATA[<p>1、使用netdiscover arp扫描同一网段的其他主机</p><img src="/2020/09/05/Web-Developer/1.png" class title="This is an image"><p>2、继续使用nmap扫描目标ip，找到开放的端口及服务</p><img src="/2020/09/05/Web-Developer/2.png" class title="This is an image"><p>3、打开网站，是个wordpress框架（WordPress是一个以PHP和MySQL为平台的博客软件和内容管理系统）</p><img src="/2020/09/05/Web-Developer/3.png" class title="This is an image"><p>4、网页没什么东西，常规扫一下目录</p><img src="/2020/09/05/Web-Developer/4.png" class title="This is an image"><p>有个ipdata目录，里面有数据包，下载下来查看一下。另外还有wp-admin目录，要登录，先放着</p><img src="/2020/09/05/Web-Developer/5.png" class title="This is an image"><p>5、在数据包中查看http协议的数据包，可以看到有登录wp-admin的行为，并且成功登录，内有账号和密码</p><p>webdeveloper/Te5eQg&amp;4sBS!Yr$)wf%(DcAd</p><img src="/2020/09/05/Web-Developer/6.png" class title="This is an image"><p>6、拿此账号密码登录wp-admin后台</p><img src="/2020/09/05/Web-Developer/7.png" class title="This is an image"><p>登录成功</p><img src="/2020/09/05/Web-Developer/8.png" class title="This is an image"><p>7、找个上传点：Appearance-Themes</p><img src="/2020/09/05/Web-Developer/9.png" class title="This is an image"><p>8、上传一个php</p><img src="/2020/09/05/Web-Developer/10.png" class title="This is an image"><p>9、连上</p><img src="/2020/09/05/Web-Developer/11.png" class title="This is an image">]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1、使用netdiscover arp扫描同一网段的其他主机&lt;/p&gt;
+&lt;img src=&quot;/2020/09/05/Web-Developer/1.png&quot; class title=&quot;This is an image&quot;&gt;
+
+&lt;p&gt;2、继续使用nmap扫描目标ip，找到开放的端
+      
+    
+    </summary>
+    
+    
+    
+      <category term="vulhub练习" scheme="http://yoursite.com/tags/vulhub%E7%BB%83%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>shiro-cve_2016_4437</title>
